@@ -1,70 +1,50 @@
-<h1>🎯 Hangman Game (Text-Based)</h1>
+<h1>🤖 Basic Rule-Based Chatbot</h1>
 
 <h2>📌 Project Overview</h2>
 <p>
-This project is a <b>simple text-based Hangman game</b> built using Python. The player tries to guess a hidden word one letter at a time within a limited number of incorrect attempts.
+This project is a <b>simple rule-based chatbot</b> built using Python. It interacts with users by taking text input and responding with predefined replies based on specific keywords or phrases.
 </p>
 
 <h2>🎯 Goal</h2>
 <ul>
-  <li>Select a random word from a predefined list</li>
-  <li>Allow the player to guess letters one by one</li>
-  <li>Limit incorrect guesses to <b>6 attempts</b></li>
-  <li>End the game when the word is guessed or attempts run out</li>
+  <li>Take user input like "hello", "how are you", "bye"</li>
+  <li>Respond with predefined messages</li>
+  <li>Continue conversation until the user exits</li>
 </ul>
 
 <h2>🧠 Key Concepts Used</h2>
 <ul>
-  <li>random module</li>
-  <li>while loop</li>
-  <li>if-else conditions</li>
-  <li>Strings and Lists</li>
+  <li>if-elif-else conditions</li>
+  <li>Functions</li>
+  <li>Loops (while)</li>
   <li>User input/output</li>
 </ul>
 
 <h2>⚙️ How It Works</h2>
 <ol>
-  <li>A random word is selected from a list of 5 words.</li>
-  <li>The word is hidden using underscores (_).</li>
-  <li>The player guesses letters one by one.</li>
-  <li>Correct guesses reveal letters in the word.</li>
-  <li>Incorrect guesses reduce remaining attempts.</li>
-  <li>Game ends when:
-    <ul>
-      <li>Word is guessed ✅</li>
-      <li>Attempts reach zero ❌</li>
-    </ul>
-  </li>
+  <li>The chatbot continuously asks for user input.</li>
+  <li>It checks the input against predefined conditions.</li>
+  <li>Based on the input, it returns a response.</li>
+  <li>The loop continues until the user types "bye" or "exit".</li>
 </ol>
 
-<h2>💬 Example Gameplay</h2>
+<h2>💬 Example Interaction</h2>
 <pre>
-Word: _ _ _ _
+You: hello
+Bot: Hi!
 
-Guess a letter: a
-Wrong guess! Attempts left: 5
+You: how are you
+Bot: I'm fine, thanks!
 
-Guess a letter: e
-Correct!
-
-Word: _ e _ e
-
-Guess a letter: l
-Correct!
-
-Word: _ e l e
-
-Guess a letter: p
-Correct!
-
-🎉 You guessed the word: help
+You: bye
+Bot: Goodbye!
 </pre>
 
 <h2>📂 Project Structure</h2>
 <pre>
-hangman-game/
+basic-chatbot/
 │
-├── hangman.py
+├── chatbot.py
 └── README.md
 </pre>
 
@@ -77,52 +57,42 @@ hangman-game/
 </ol>
 
 <pre>
-python hangman.py
+python chatbot.py
 </pre>
 
 <h2>🧩 Sample Code</h2>
 <pre><code>
-import random
+def chatbot():
+    while True:
+        user = input("You: ").lower()
 
-words = ["apple", "table", "chair", "plant", "light"]
-word = random.choice(words)
-guessed = ["_"] * len(word)
-attempts = 6
+        if user == "hello":
+            print("Bot: Hi!")
+        elif user == "how are you":
+            print("Bot: I'm fine, thanks!")
+        elif user == "bye":
+            print("Bot: Goodbye!")
+            break
+        else:
+            print("Bot: Sorry, I don't understand.")
 
-while attempts > 0 and "_" in guessed:
-    print("Word:", " ".join(guessed))
-    letter = input("Guess a letter: ").lower()
-
-    if letter in word:
-        for i in range(len(word)):
-            if word[i] == letter:
-                guessed[i] = letter
-        print("Correct!")
-    else:
-        attempts -= 1
-        print("Wrong guess! Attempts left:", attempts)
-
-if "_" not in guessed:
-    print("🎉 You guessed the word:", word)
-else:
-    print("❌ Game Over! The word was:", word)
+chatbot()
 </code></pre>
 
 <h2>🚀 Future Improvements</h2>
 <ul>
-  <li>Add difficulty levels</li>
-  <li>Show guessed letters</li>
-  <li>Add ASCII hangman drawing</li>
-  <li>Allow full word guesses</li>
-  <li>Add scoring system</li>
+  <li>Add more responses and keywords</li>
+  <li>Use dictionaries instead of if-elif</li>
+  <li>Implement basic NLP</li>
+  <li>Add GUI using Tkinter</li>
 </ul>
 
 <h2>📚 Learning Outcome</h2>
 <ul>
-  <li>Understanding loops in games</li>
-  <li>Working with strings and lists</li>
-  <li>Random word selection</li>
-  <li>Handling user input</li>
+  <li>Understanding chatbot logic</li>
+  <li>Using conditional statements</li>
+  <li>Loop control</li>
+  <li>Handling user interaction</li>
 </ul>
 
 <h2>👨‍💻 Author</h2>
