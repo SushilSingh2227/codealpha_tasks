@@ -126,4 +126,4 @@ else:
 </ul>
 
 <h2>👨‍💻 Author</h2>
-<p>Your Name Here</p>
+<p>Sushil Singraul</p>
